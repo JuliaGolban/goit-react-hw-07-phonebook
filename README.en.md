@@ -1,85 +1,69 @@
-# React homework template
+**Read in other languages: [English](README.en.md), [Українська](README.md).**
 
-This project was created with
-[Create React App](https://github.com/facebook/create-react-app). 
-To get acquainted and configure additional features
-[refer to documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Preparing a project
 
-## Preparing a new project
-
-1. Make sure you have an LTS version of Node.js installed on your computer.
+1. You have an LTS version of Node.js installed on your computer.
    [Download and install](https://nodejs.org/en/) if needed.
-2. Clone this repository.
-3. Change the folder name from `react-homework-template` to the name of your project.
-4. Create a new empty GitHub repository.
-5. Open the project in VSCode, launch the terminal and link the project to the GitHub repository 
-  [according to the instructions] (https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories #changing-a-remote-repositorys-url).
-6. Install the project's base dependencies with the `npm install` command.
-7. Start development mode by running the `npm start` command.
-8. Go to [http://localhost:3000](http://localhost:3000) in your browser.
- This page will automatically reload after saving changes to the project files.
+2. Creat with [Create React App](https://github.com/facebook/create-react-app).
+   To get acquainted and configure additional features
+   [refer to documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Install the project's base dependencies with the `npm install` command.
+4. Start development mode by running the `npm start` command.
+5. Go to [http://localhost:3000](http://localhost:3000) in your browser. This
+   page will automatically reload after saving changes to the project files.
 
-## Deploy
+# Admission criteria
 
-The production version of the project will automatically be linted, built, 
-and deployed to GitHub Pages, in the `gh-pages` branch, every time the `main` 
-branch is updated. For example, after a direct push or an accepted pull request. 
-To do this, you need to edit the `homepage` field in the `package.json` file, 
-replacing `your_username` and `your_repo_name` with your own, and submit the 
-changes to GitHub.
+- The `goit-react-hw-07-feedback` repository has been created.
+- Use of the library `Redux Toolkit`.
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
+## Contact Book.
 
-Next, you need to go to the settings of the GitHub repository (`Settings` > `Pages`) 
-and set the distribution of the production version of files from the `/root` 
-folder of the `gh-pages` branch, if this was not done automatically.
+Refactor the "Contact Book" application code.Remove the code responsible for
+storing and reading contacts from the local storage, and add communication with
+the backend for storing contacts.
 
-![GitHub Pages settings](./assets/repo-settings.png)
+### Backend
 
-### Deployment status
+Create your own personal backend for development with the UI service
+[mockapi.io](https://mockapi.io/). Sign up using your GitHub account. Create a
+resource `contacts` to get your handpoint `/contacts`. Use resource constructor
+and describe the contact object as on the picture.
 
-The deployment status of the latest commit is displayed with an icon next to its ID.
+<Image
+  src="./assets/api.png"
+  alt="component preview"
+  maxWidth={960}
+/>
 
-- **Yellow color** - the project is being built and deployed.
-- **Green color** - deployment completed successfully.
-- **Red color** - an error occurred during linting, build or deployment.
+### State Form
 
-More detailed information about the status can be viewed by clicking on the icon, 
-and in the drop-down window, follow the link `Details`.
-
-![Deployment status](./assets/status.png)
-
-### Live page
-After some time, usually a couple of minutes, the live page can be viewed at the address 
-specified in the edited `homepage` property. For example, here is a link to a live version for this repository
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-If a blank page opens, make sure there are no errors in the `Console` tab related 
-to incorrect paths to the CSS and JS files of the project (**404**). You most likely 
-have the wrong value for the `homepage` property in the `package.json` file.
-
-### Routing
-If your application uses the `react-router-dom` library for routing, you must 
-additionally configure the `<BrowserRouter>` component by passing the exact name 
-of your repository in the `basename` prop. Slashes at the beginning and end of 
-the line are required.
+Add the load and error indicator handling to the Redux state. To do this, change
+the state form.
 
 ```jsx
-<BrowserRouter basename="/your_repo_name/">
-  <App />
-</BrowserRouter>
+{
+  contacts: {
+    items: [],
+    isLoading: false,
+    error: null
+  },
+  filter: ""
+}
 ```
 
-## How it works
+### Operations
 
-![How it works](./assets/how-it-works.png)
+Use [createAsyncThunk](https://redux-toolkit.js.org/api/createAsyncThunk) to
+declare asynchronous action generators and make HTTP requests. Do the processing
+of the actions and change data in Redux state with
+[createSlice](https://redux-toolkit.js.org/api/createSlice).
 
-1. After each push to the `main` branch of the GitHub repository, a special script 
-  (GitHub Action) is launched from the `.github/workflows/deploy.yml` file.
-2. All repository files are copied to the server, where the project is initialized 
-  and linted and built before deployment.
-3. If all steps are successful, the built production version of the project files is 
-  sent to the `gh-pages` branch. Otherwise, the script execution log will indicate 
-  what the problem is.
+Declare the following operations:
+
+- `fetchContacts` - get an array of contacts (GET method) by GET request. The
+  basic type of action `"contacts/fetchAll"`.
+- `addContact` - add contact (POST method). Basic type of action
+  `"contacts/addContact"`.
+- `deleteContact` - deletes a contact (DELETE method). Basic type of action
+  `"contacts/deleteContact"`.
