@@ -1,36 +1,45 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getContacts, getFilter } from 'redux/selectors';
-import { deleteContact } from 'redux/appSlice';
-import { List, Item } from './List.styled';
-import IconBtn from 'components/buttons/IconBtn/IconBtn';
-import { ReactComponent as DeleteIcon } from '../Icons/close.svg';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  getContacts,
+  getIsLoading,
+  getError,
+  getFilter,
+} from 'redux/selectors';
+import { fetchContacts } from 'redux/operations';
+import { ContactItem } from 'components/Item/Item';
+import { List } from './List.styled';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
   const filter = useSelector(getFilter);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const getVisibleContacts = () => {
     return contacts.filter(({ name }) => name.toLowerCase().includes(filter));
   };
   const visibleContacts = getVisibleContacts();
 
-  const dispatch = useDispatch();
-  const deleteThisContact = () => dispatch(deleteContact(contacts.id));
-
   return (
     <List>
-      {visibleContacts.length === 0 && <Item>No contacts</Item>}
-      {visibleContacts.map(({ id, name, number }) => {
-        return (
-          <Item key={id}>
-            {name}: {number}
-            <IconBtn aria-label="Delete contact" onClick={deleteThisContact}>
-              <DeleteIcon width="10" heigth="10" />
-            </IconBtn>
-          </Item>
-        );
-      })}
+      {isLoading && !error && <p>Loading contacts...</p>}
+      {error && <p>{error}</p>}
+
+      {visibleContacts.length === 0 && !error && !isLoading && (
+        <p>No contacts</p>
+      )}
+
+      {contacts.length > 0 &&
+        visibleContacts.map(({ id, name, number }) => (
+          <ContactItem key={id} id={id} name={name} number={number} />
+        ))}
     </List>
   );
 };

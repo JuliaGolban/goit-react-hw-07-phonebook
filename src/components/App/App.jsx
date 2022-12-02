@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast';
 import { ContactForm } from '../Form/Form';
 import { ContactList } from '../List/List';
 import { Filter } from '../Filter/Filter';
@@ -17,6 +18,7 @@ const App = () => {
         <ContactList />
       </Section>
       <GlobalStyle />
+      <Toaster position="bottom-center" reverseOrder={false} />
     </Container>
   );
 };

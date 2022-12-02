@@ -6,7 +6,6 @@ const Form = styled.form`
   justify-content: center;
   align-items: flex-start;
 
-  width: 320px;
   padding-left: 15px;
 
   background-color: transparent;
@@ -30,7 +29,7 @@ const Label = styled.span`
 `;
 
 const Input = styled.input`
-  width: 250px;
+  width: 300px;
   padding: 10px;
 
   font-size: 12px;
