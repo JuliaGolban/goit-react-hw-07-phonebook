@@ -8,7 +8,7 @@ import {
 } from 'redux/selectors';
 import { fetchContacts } from 'redux/operations';
 import { ContactItem } from 'components/Item/Item';
-import { List } from './List.styled';
+import { List, Notify } from './List.styled';
 
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
@@ -29,11 +29,11 @@ export const ContactList = () => {
 
   return (
     <List>
-      {isLoading && !error && <p>Loading contacts...</p>}
-      {error && <p>{error}</p>}
+      {isLoading && !error && <Notify>Loading contacts...</Notify>}
+      {error && <Notify>{error}</Notify>}
 
       {visibleContacts.length === 0 && !error && !isLoading && (
-        <p>No contacts</p>
+        <Notify>No contacts</Notify>
       )}
 
       {contacts.length > 0 &&
