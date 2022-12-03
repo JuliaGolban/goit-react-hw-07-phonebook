@@ -30,7 +30,7 @@ const Label = styled.span`
 
 const Input = styled.input`
   width: 300px;
-  padding: 10px;
+  padding: 10px 15px;
 
   font-size: 12px;
   font-weight: 500;
@@ -38,13 +38,14 @@ const Input = styled.input`
 
   background-color: rgb(255 255 255 / 70%);
   border-radius: 5px;
-  border: 1px solid rgba(128, 128, 128, 0.7);
+  border: 2px solid rgba(128, 128, 128, 0.7);
   box-shadow: 3px 5px 10px -2px rgba(75, 92, 165, 0.5);
 
   &:hover,
   &:focus,
   &:active {
     outline: 0;
+    border: 2px solid rgb(128, 128, 128);
     box-shadow: 1px -1px 10px -2px rgba(75, 92, 165, 0.5) inset;
   }
 `;
@@ -64,13 +65,14 @@ const Submit = styled.button`
 
   background-color: rgba(160, 141, 196, 0.5);
   border-radius: 5px;
-  border: 1px solid rgba(128, 128, 128, 0.5);
-  box-shadow: 3px 5px 10px -2px rgba(75, 92, 165, 0.3);
+  border: 1px solid rgba(128, 128, 128, 0.7);
+  box-shadow: 5px 5px 5px -2px rgba(75, 92, 165, 0.3);
   cursor: pointer;
 
   &:hover,
   &:focus,
   &:active {
+    border: 1px solid rgba(128, 128, 128);
     box-shadow: 1px -1px 10px -2px rgba(75, 92, 165, 0.3) inset;
   }
 `;

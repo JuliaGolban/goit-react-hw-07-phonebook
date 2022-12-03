@@ -5,8 +5,7 @@ const Item = styled.li`
   gap: 10px;
   align-items: center;
   align-content: center;
-  font-size: 16px;
-  font-weight: 500;
+
   color: #2a2a2a;
 
   &:not(:last-child) {
@@ -16,8 +15,38 @@ const Item = styled.li`
 
 const Name = styled.span`
   margin-right: auto;
+  font-size: 16px;
+  font-weight: 500;
 `;
 
-const Number = styled.span``;
+const Number = styled.span`
+  font-size: 14px;
+  font-weight: 400;
+`;
 
-export { Item, Name, Number };
+const DeleteIconBtn = styled.button`
+  display: inline-flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+
+  color: #2a2a2a;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: red;
+  }
+
+  & > svg {
+    fill: currentColor;
+  }
+`;
+
+export { Item, Name, Number, DeleteIconBtn };

@@ -1,8 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
-import TextBtn from 'components/buttons/TextBtn/TextBtn.styled';
-import { Form, Field, Label, Input } from './Form.styled';
+import { Form, Field, Label, Input, Submit } from './Form.styled';
 
 export const ContactForm = () => {
   const contacts = useSelector(getContacts);
@@ -54,7 +53,7 @@ export const ContactForm = () => {
           required
         />
       </Field>
-      <TextBtn type="submit">Add contact</TextBtn>
+      <Submit type="submit">Add contact</Submit>
     </Form>
   );
 };
