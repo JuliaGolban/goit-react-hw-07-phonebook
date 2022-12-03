@@ -14,6 +14,7 @@ export const ContactForm = () => {
 
     const name = form.elements.name;
     const number = form.elements.number;
+
     const newContact = {
       name: name.value,
       number: number.value,
@@ -24,7 +25,7 @@ export const ContactForm = () => {
       ({ name }) => name.toLowerCase() === normalizedName
     );
     if (isExist) {
-      return alert(`${newContact.name} is already in contacts`);
+      return alert(`${name.value} is already in contacts`);
     }
 
     dispatch(addContact(newContact));
@@ -38,6 +39,7 @@ export const ContactForm = () => {
         <Input
           type="text"
           name="name"
+          placeholder="Enter name..."
           pattern="^[a-zA-Za-яА-Я]+(([' -][a-zA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
@@ -48,6 +50,7 @@ export const ContactForm = () => {
         <Input
           type="tel"
           name="number"
+          placeholder="Enter phone number..."
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
