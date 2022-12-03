@@ -13,9 +13,9 @@ const Section = styled.section`
   align-items: flex-start;
   justify-content: center;
   padding: 30px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.75);
+  /* background-color: rgb(255 255 255 / 50%); */
+  /* border-radius: 5px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.75); */
 `;
 
 const Title = styled.h1`

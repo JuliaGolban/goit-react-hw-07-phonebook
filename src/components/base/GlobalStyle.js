@@ -10,8 +10,12 @@ export const GlobalStyle = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: rgb(160 141 196);
-  }
+/* background: rgb(233,246,7);
+background: linear-gradient(90deg, rgba(233,246,7,1) 0%, rgba(240,240,242,1) 50%, rgba(0,214,255,1) 100%); */
+  
+background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
 
   code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

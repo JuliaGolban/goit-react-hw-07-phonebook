@@ -36,9 +36,9 @@ const Input = styled.input`
   font-weight: 500;
   color: #2a2a2a;
 
-  background-color: transparent;
+  background-color: rgb(255 255 255 / 70%);
   border-radius: 5px;
-  border: 1px solid rgba(128, 128, 128, 0.5);
+  border: 1px solid rgba(128, 128, 128, 0.7);
   box-shadow: 3px 5px 10px -2px rgba(75, 92, 165, 0.5);
 
   &:hover,
@@ -64,14 +64,14 @@ const Submit = styled.button`
 
   background-color: rgba(160, 141, 196, 0.5);
   border-radius: 5px;
-  border: 1px solid rgba(128, 128, 128, 0.263);
-  box-shadow: 3px 5px 10px -2px rgba(75, 92, 165, 0.5);
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  box-shadow: 3px 5px 10px -2px rgba(75, 92, 165, 0.3);
   cursor: pointer;
 
   &:hover,
   &:focus,
   &:active {
-    box-shadow: 1px -1px 10px -2px rgba(75, 92, 165, 0.5) inset;
+    box-shadow: 1px -1px 10px -2px rgba(75, 92, 165, 0.3) inset;
   }
 `;
 
