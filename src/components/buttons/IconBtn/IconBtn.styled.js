@@ -6,7 +6,6 @@ const DeleteIconBtn = styled.button`
   justify-content: center;
   align-items: center;
 
-  margin-left: 10px;
   padding: 0;
 
   color: #2a2a2a;

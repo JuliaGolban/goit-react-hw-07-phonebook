@@ -3,8 +3,6 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: grid;
   justify-content: center;
-  grid-gap: 20px;
-  width: 405px;
   margin: 30px auto;
 `;
 const Section = styled.section`

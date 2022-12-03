@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
 const List = styled.ul`
-  padding-left: 35px;
+  width: 400px;
 `;
 export { List };
