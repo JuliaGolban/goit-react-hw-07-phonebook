@@ -18,7 +18,7 @@ const handleAddContacts = (state, action) => {
 };
 
 const handleDeleteContacts = (state, action) => {
-  const idx = state.items.findIndex(item => item.id === action.payload.id);
+  const idx = state.items.findIndex(({ id }) => id === action.payload.id);
   state.items.splice(idx, 1);
 };
 
