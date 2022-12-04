@@ -15,6 +15,13 @@
 # Admission criteria
 
 - The `goit-react-hw-07-feedback` repository has been created.
+- When submitting homework, there are two links: to the source files and the
+  working pages of each assignment on `GitHub Pages`.
+- Redux-state stores the minimum required set of data.
+- There are no errors or warnings in the console when running the job code.
+- For each component has a separate folder with the React-component file and
+  styles file.
+- For the components are described `propTypes`.
 - Use of the library `Redux Toolkit`.
 
 ## Contact Book.
